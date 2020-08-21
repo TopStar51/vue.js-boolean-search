@@ -1,0 +1,52 @@
+{
+    "blogs": [
+        {
+         "url":"https://cdixon.org/2015/01/31/come-for-the-tool-stay-for-the-network",
+         "title":"Come for the tool, stay for the network",
+         "highlight":"starting a network from scratch is very hard. Think of single-player tools as kindling",
+         "note":"couldn't agree more",
+         "id":1,
+         "created":1597849036335
+        },
+        {
+         "url":"https://cdixon.org/2015/01/31/come-for-the-tool-stay-for-the-network",
+         "title":"Come for the tool, stay for the network",
+         "highlight":"",
+         "note":"why wasn't there a follow up to this?",
+         "id":2,
+         "created":1597849036336
+        },
+        {
+         "url":"https://divinations.substack.com/p/oatly-the-new-coke",
+         "title":"Oatly: The New Coke",
+         "highlight":"table sugar has a rating of 65, and the high-fructose corn syrup you get in a Coca-Cola has a GI around 65-75.",
+         "note":"This seems to imply that your insulin response is the only or at least most important factor sugar has on your health, which is clearly wrong. Certain types of sugars can be processed by the body quite easily, while others stress the body and put it into a prediabetic state",
+         "id":3,
+         "created":1597849036337
+        },
+        {
+         "url":"https://divinations.substack.com/p/oatly-the-new-coke",
+         "title":"Oatly: The New Coke",
+         "highlight":"The evidence for the harms of canola oil is still in its early days",
+         "note":"This is just not true",
+         "id":4,
+         "created":1597849036338
+        },
+        {
+         "url":"https://ew.com/tv/2018/05/07/arrested-development-season-4-remix-review/",
+         "title":"The Arrested Development remix is impressive, but pointless: EW review",
+         "highlight":"But the focal-character episodes felt weirdly opposite — actually too linear, following just Lindsay (Portia de Rossi) as she went here and here and then there, and ultimately back to here.",
+         "note":"Yes!! By making each episode focus on a single character they destroyed the essence of my favorite show. Sad really",
+         "id":5,
+         "created":1597849036339
+        },
+        {
+         "url":"https://businessesgrow.com/2014/01/06/content-shock/",
+         "title":"Content Shock: Why content marketing is not a sustainable strategy",
+         "highlight":"to get people to consume our content, we actually have to pay them to do it, and as the supply of content explodes, we will have to pay our customers increasing amounts to the point where it is not feasible any more.",
+         "note":"Oof. Sometimes the truth hurts...",
+         "id":6,
+         "created":1597849036340
+        }
+    ]
+}
