@@ -23,7 +23,7 @@
 <script>
 // @ is an alias to /src
 import ListItem from '@/components/ListItem.vue'
-import notes from '@/assets/notes.json'
+import notes from '@/notes.json'
 
 export default {
   name: 'Home',
@@ -65,12 +65,51 @@ export default {
   },
   methods: {
     inputChange () {
-      this.filteredBlogs = this.blogs.filter(item =>
-        item.url.toLowerCase().includes(this.searchInput.toLowerCase()) ||
-        item.title.toLowerCase().includes(this.searchInput.toLowerCase()) ||
-        item.highlight.toLowerCase().includes(this.searchInput.toLowerCase()) ||
-        item.note.toLowerCase().includes(this.searchInput.toLowerCase())
-      )
+      if (this.searchInput.includes('&')) {
+        const splits = this.searchInput.split('&')
+        const search1 = splits[0].trim()
+        const search2 = splits[1].trim()
+        if (search1.includes(':')) {
+          const splits = search1.split(':')
+          const key = splits[0].trim()
+          const value = splits[1].replace(/["]/g, '').trim()
+          this.filteredBlogs = this.blogs.filter(item =>
+            item[key] && item[key].toLowerCase().includes(value.toLowerCase())
+          )
+          if (search2.includes(':')) {
+            const splits2 = search2.split(':')
+            const key2 = splits2[0].trim()
+            const value2 = splits2[1].replace(/["]/g, '').trim()
+            this.filteredBlogs = this.blogs.filter(item =>
+              item[key] && item[key].toLowerCase().includes(value.toLowerCase()) && item[key2] && item[key2].toLowerCase().includes(value2.toLowerCase())
+            )
+          }
+        } else {
+          this.filteredBlogs = this.blogs
+        }
+      } else {
+        if (this.searchInput.includes(':')) {
+          const splits = this.searchInput.split(':')
+          const key = splits[0].trim()
+          const value = splits[1].replace(/["]/g, '').trim()
+          this.filteredBlogs = this.blogs.filter(item =>
+            item[key] && item[key].toLowerCase().includes(value.toLowerCase())
+          )
+        } else {
+          this.filteredBlogs = this.blogs
+        }
+      }
+      /** Single search */
+      /* if (this.searchInput.includes(':')) {
+        const splits = this.searchInput.split(':')
+        const key = splits[0].trim()
+        const value = splits[1].replace(/["]/g, '').trim()
+        this.filteredBlogs = this.blogs.filter(item =>
+          item[key] && item[key].toLowerCase().includes(value.toLowerCase())
+        )
+      } else {
+        this.filteredBlogs = this.blogs
+      } */
     }
   }
 }
