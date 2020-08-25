@@ -65,7 +65,31 @@ export default {
   },
   methods: {
     inputChange () {
-      if (this.searchInput.includes('&')) {
+      /** Single search */
+      if (this.searchInput.includes(':')) {
+        const splits = this.searchInput.split(':')
+        const key = splits[0].trim()
+        const value = splits[1].trim()
+        let searchValue
+        if (value.charAt(0) === '"') {
+          searchValue = value.substring(1)
+          const lastIndex = value.lastIndexOf('"')
+          if (lastIndex > 0) {
+            searchValue = value.substring(1, lastIndex)
+          }
+        } else if (value.includes(' ')) {
+          const splits = value.split(' ')
+          searchValue = splits[0].trim()
+        } else {
+          searchValue = value
+        }
+        this.filteredBlogs = this.blogs.filter(item =>
+          item[key] && item[key].toLowerCase().includes(searchValue.toLowerCase())
+        )
+      } else {
+        this.filteredBlogs = this.blogs
+      }
+      /* if (this.searchInput.includes('&')) {
         const splits = this.searchInput.split('&')
         const search1 = splits[0].trim()
         const search2 = splits[1].trim()
@@ -98,17 +122,6 @@ export default {
         } else {
           this.filteredBlogs = this.blogs
         }
-      }
-      /** Single search */
-      /* if (this.searchInput.includes(':')) {
-        const splits = this.searchInput.split(':')
-        const key = splits[0].trim()
-        const value = splits[1].replace(/["]/g, '').trim()
-        this.filteredBlogs = this.blogs.filter(item =>
-          item[key] && item[key].toLowerCase().includes(value.toLowerCase())
-        )
-      } else {
-        this.filteredBlogs = this.blogs
       } */
     }
   }
